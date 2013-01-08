@@ -11,11 +11,11 @@ class nullObj implements Iterator, JsonSerializable, ArrayAccess {
         return self::$instance;
     }
 
-    public function __call($x, $y) {
+    public function __call($name, $arguments) {
         return self::getInstance();
     }
 
-    public static function __callStatic($x, $y) {
+    public static function __callStatic($name, $arguments) {
         return self::getInstance();
     }
 
