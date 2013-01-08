@@ -2,12 +2,21 @@
 
 class nullObj implements Iterator, JsonSerializable, ArrayAccess {
 
+    private static $instance;
+
+    public static function getInstance() {
+        if (!self::$instance) {
+            self::$instance = new nullObj();
+        }
+        return self::$instance;
+    }
+
     public function __call($x, $y) {
-        return;
+        return self::getInstance();
     }
 
     public static function __callStatic($x, $y) {
-        return;
+        return self::getInstance();
     }
 
     public function __toString() {
@@ -19,7 +28,7 @@ class nullObj implements Iterator, JsonSerializable, ArrayAccess {
     }
 
     public function __wakeup() {
-        return array();
+        self::getInstance();
     }
 
     // must implement jsonSerialize
@@ -29,15 +38,13 @@ class nullObj implements Iterator, JsonSerializable, ArrayAccess {
 
     // must implement current, next, key, rewind, and valid
     public function current() {
-        return null;
+        return self::getInstance();
     }
 
-    public function next() {
-        return null;
-    }
+    public function next() { }
 
     public function key() {
-        return null;
+        return self::getInstance();
     }
 
     public function valid() {
@@ -52,7 +59,7 @@ class nullObj implements Iterator, JsonSerializable, ArrayAccess {
     }
 
     public function offsetGet($offset) {
-        return null;
+        return self::getinstance();
     }
 
     public function offsetSet($offset, $value) { }
