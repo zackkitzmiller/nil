@@ -1,6 +1,6 @@
 <?php
 
-class nullObj implements Iterator, JsonSerializable {
+class nullObj implements Iterator, JsonSerializable, ArrayAccess {
 
     public function __call($x, $y) {
         return;
@@ -45,4 +45,16 @@ class nullObj implements Iterator, JsonSerializable {
     }
 
     public function rewind() { }
+
+    // must implement offsetExists, offsetGet, offsetSet, offsetUnset
+    public function offsetExists($offset) {
+        return false;
+    }
+
+    public function offsetGet($offset) {
+        return null;
+    }
+
+    public function offsetSet($offset, $value) { }
+    public function offsetUnset($offset) { }
 }
