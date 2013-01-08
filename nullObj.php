@@ -1,6 +1,6 @@
 <?php
 
-class nullObj implements JsonSerializable {
+class nullObj implements Iterator, JsonSerializable {
 
     public function __call($x, $y) {
         return;
@@ -22,8 +22,27 @@ class nullObj implements JsonSerializable {
         return array();
     }
 
+    // must implement jsonSerialize
     public function jsonSerialize() {
         return (string)null;
     }
 
+    // must implement current, next, key, rewind, and valid
+    public function current() {
+        return null;
+    }
+
+    public function next() {
+        return null;
+    }
+
+    public function key() {
+        return null;
+    }
+
+    public function valid() {
+        return false;
+    }
+
+    public function rewind() { }
 }
