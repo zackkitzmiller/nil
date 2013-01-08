@@ -1,6 +1,6 @@
 <?php
 
-class nullObj {
+class nullObj implements JsonSerializable {
 
     public function __call($x, $y) {
         return;
@@ -20,6 +20,10 @@ class nullObj {
 
     public function __wakeup() {
         return array();
+    }
+
+    public function jsonSerialize() {
+        return (string)null;
     }
 
 }
