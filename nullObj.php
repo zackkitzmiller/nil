@@ -1,6 +1,12 @@
 <?php
 
-class nullObj implements Iterator, JsonSerializable, ArrayAccess {
+if (PHP_VERSION_ID < 50400) {
+  interface nullObjectionable extends Iterator, ArrayAccess { }
+} else {
+  interface nullObjectionable extends Iterator, ArrayAccess, JsonSerializable { }
+}
+
+class nullObj implements nullObjectionable {
 
     private static $instance;
 
