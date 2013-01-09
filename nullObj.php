@@ -1,6 +1,12 @@
 <?php
 
-class nullObj implements Iterator, JsonSerializable, ArrayAccess {
+if (PHP_VERSION_ID < 50400) {
+  interface nullObjectionable extends Iterator, ArrayAccess { }
+} else {
+  interface nullObjectionable extends Iterator, ArrayAccess, JsonSerializable { }
+}
+
+class nullObj implements nullObjectionable {
 
     private static $instance;
 
@@ -11,11 +17,11 @@ class nullObj implements Iterator, JsonSerializable, ArrayAccess {
         return self::$instance;
     }
 
-    public function __call($x, $y) {
+    public function __call($name, $arguments) {
         return self::getInstance();
     }
 
-    public static function __callStatic($x, $y) {
+    public static function __callStatic($name, $arguments) {
         return self::getInstance();
     }
 
