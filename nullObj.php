@@ -33,7 +33,7 @@ class nullObj implements Iterator, JsonSerializable, ArrayAccess {
 
     // must implement jsonSerialize
     public function jsonSerialize() {
-        return (string)null;
+        return new stdClass;
     }
 
     // must implement current, next, key, rewind, and valid
