@@ -1,18 +1,18 @@
 <?php
 
 if (PHP_VERSION_ID < 50400) {
-  interface nullObjectionable extends Iterator, ArrayAccess { }
+  interface Nilectionable extends Iterator, ArrayAccess { }
 } else {
-  interface nullObjectionable extends Iterator, ArrayAccess, JsonSerializable { }
+  interface Nilectionable extends Iterator, ArrayAccess, JsonSerializable { }
 }
 
-class nullObj implements nullObjectionable {
+class Nil implements Nilectionable {
 
     private static $instance;
 
     public static function getInstance() {
         if (!self::$instance) {
-            self::$instance = new nullObj();
+            self::$instance = new Nil();
         }
         return self::$instance;
     }
