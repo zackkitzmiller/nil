@@ -6,65 +6,79 @@ if (PHP_VERSION_ID < 50400) {
   interface Nilectionable extends Iterator, ArrayAccess, JsonSerializable { }
 }
 
-class Nil implements Nilectionable {
+class Nil implements Nilectionable
+{
 
     private static $instance;
 
-    public static function getInstance() {
-        if (!self::$instance) {
+    public static function getInstance()
+    {
+        if (!self::$instance)
+        {
             self::$instance = new Nil();
         }
         return self::$instance;
     }
 
-    public function __call($name, $arguments) {
+    public function __call($name, $arguments)
+    {
         return self::getInstance();
     }
 
-    public static function __callStatic($name, $arguments) {
+    public static function __callStatic($name, $arguments)
+    {
         return self::getInstance();
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return (string)null;
     }
 
-    public function __sleep() {
+    public function __sleep()
+    {
         return array();
     }
 
-    public function __wakeup() {
+    public function __wakeup()
+    {
         self::getInstance();
     }
 
     // must implement jsonSerialize
-    public function jsonSerialize() {
+    public function jsonSerialize()
+    {
         return new stdClass;
     }
 
     // must implement current, next, key, rewind, and valid
-    public function current() {
+    public function current()
+    {
         return self::getInstance();
     }
 
     public function next() { }
 
-    public function key() {
+    public function key()
+    {
         return self::getInstance();
     }
 
-    public function valid() {
+    public function valid()
+    {
         return false;
     }
 
     public function rewind() { }
 
     // must implement offsetExists, offsetGet, offsetSet, offsetUnset
-    public function offsetExists($offset) {
+    public function offsetExists($offset)
+    {
         return false;
     }
 
-    public function offsetGet($offset) {
+    public function offsetGet($offset)
+    {
         return self::getinstance();
     }
 
