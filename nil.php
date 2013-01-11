@@ -13,10 +13,10 @@ class Nil implements Nilectionable
 
     public static function getInstance()
     {
-        if (!self::$instance)
-        {
+        if (!self::$instance) {
             self::$instance = new Nil();
         }
+
         return self::$instance;
     }
 
