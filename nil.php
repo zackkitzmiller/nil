@@ -9,11 +9,11 @@ if (PHP_VERSION_ID < 50400) {
 class Nil implements Nilectionable
 {
 
-    private static $instance;
+    protected static $instance;
 
     public static function getInstance()
     {
-        if (!self::$instance) {
+        if (!self::$instance instanceof Nil) {
             self::$instance = new Nil();
         }
 
