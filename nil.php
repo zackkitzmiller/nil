@@ -14,6 +14,10 @@ class Nil implements Nilectionable
     private function __construct() { }
     private function __clone() { }
 
+    public function __invoke() {
+        return self::getInstance();
+    }
+
     public static function getInstance()
     {
         if (!self::$instance instanceof Nil) {
