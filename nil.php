@@ -1,12 +1,12 @@
 <?php
 
 if (PHP_VERSION_ID < 50400) {
-  interface Nilectionable extends Iterator, ArrayAccess { }
+  interface Nilish extends Iterator, ArrayAccess { }
 } else {
-  interface Nilectionable extends Iterator, ArrayAccess, JsonSerializable { }
+  interface Nilish extends Iterator, ArrayAccess, JsonSerializable { }
 }
 
-class Nil implements Nilectionable
+class Nil implements Nilish
 {
 
     protected static $instance;
