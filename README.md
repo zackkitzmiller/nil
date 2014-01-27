@@ -1,6 +1,6 @@
 Nil (formerly nullObj)
 =======
 
-![x](https://api.travis-ci.org/zackkitzmiller/nil.png)
+![https://travis-ci.org/zackkitzmiller/nil](https://api.travis-ci.org/zackkitzmiller/nil.png)
 
 A amazingly awesome and reasonable null object implementation in PHP.
