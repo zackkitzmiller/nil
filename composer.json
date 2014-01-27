@@ -1,0 +1,21 @@
+{
+    "name": "zackkitzmiller/nil",
+    "homepage": "http://github.com/zackkitzmiller/nil",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zack Kitzmiller",
+            "email": "zack@inrpce.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7.0"
+    },
+    "autoload": {
+        "psr-0": {"ZackKitzmiller": "src/"}
+    }
+}
