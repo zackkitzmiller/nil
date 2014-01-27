@@ -43,6 +43,11 @@ class Nil implements Nilish
         return (string)null;
     }
 
+    public function __get()
+    {
+    	return null;
+    }
+
     public function __sleep()
     {
         return array();
