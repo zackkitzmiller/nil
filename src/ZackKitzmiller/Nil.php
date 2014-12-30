@@ -49,7 +49,7 @@ class Nil implements \Iterator, \ArrayAccess, \JsonSerializable
 
     public function __wakeup()
     {
-        self::getInstance();
+        return self::getInstance();
     }
 
     // must implement jsonSerialize
