@@ -39,7 +39,7 @@ class Nil implements \Iterator, \ArrayAccess, \JsonSerializable
 
     public function __get($arg)
     {
-        return null;
+        return self::getInstance();
     }
 
     public function __sleep()
