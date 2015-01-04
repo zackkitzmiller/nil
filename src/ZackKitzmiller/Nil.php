@@ -39,7 +39,7 @@ class Nil implements \Iterator, \ArrayAccess, \JsonSerializable
 
     public function __get($arg)
     {
-        return null;
+        return self::getInstance();
     }
 
     public function __sleep()
@@ -86,7 +86,7 @@ class Nil implements \Iterator, \ArrayAccess, \JsonSerializable
 
     public function offsetGet($offset)
     {
-        return self::getinstance();
+        return self::getInstance();
     }
 
     public function offsetSet($offset, $value) { }

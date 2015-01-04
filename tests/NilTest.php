@@ -32,4 +32,8 @@ class NilTest extends PHPUnit_Framework_TestCase {
         $obj = json_decode(json_encode($this->nil));
         $this->assertEquals($obj, new stdClass);
     }
+
+    public function testGetter() {
+        $this->assertEquals($this->nil->it->can->be->chained(), $this->nil);
+    }
 }
